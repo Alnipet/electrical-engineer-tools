@@ -21,7 +21,7 @@ const menuItem: TMenuItem = [
 ]
 
 export const Header = () => {
-  const [currentMenuItem, setCurrentMenuItem] = useState<string>('demandFactorCalculation')
+  const [currentMenuItem, setCurrentMenuItem] = useState<string>('main')
 
   const handleMenuItemSelect: MenuProps['onClick'] = (e) => {
     setCurrentMenuItem(e.key)
