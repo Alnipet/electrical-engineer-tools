@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/electrical-engineer-tools/static/css/main.eb6365bf.css",
-    "main.js": "/electrical-engineer-tools/static/js/main.05f86fde.js",
+    "main.js": "/electrical-engineer-tools/static/js/main.c7c4e65e.js",
     "index.html": "/electrical-engineer-tools/index.html",
     "main.eb6365bf.css.map": "/electrical-engineer-tools/static/css/main.eb6365bf.css.map",
-    "main.05f86fde.js.map": "/electrical-engineer-tools/static/js/main.05f86fde.js.map"
+    "main.c7c4e65e.js.map": "/electrical-engineer-tools/static/js/main.c7c4e65e.js.map"
   },
   "entrypoints": [
     "static/css/main.eb6365bf.css",
-    "static/js/main.05f86fde.js"
+    "static/js/main.c7c4e65e.js"
   ]
 }
