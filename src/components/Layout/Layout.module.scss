@@ -1,0 +1,15 @@
+.wrapper {
+  min-height: 100vh;
+
+  .content {
+    padding: 25px 50px;
+
+    @media screen and (max-width: 960px) {
+      padding: 15px 15px;
+    }
+
+    .title {
+      font-size: 1.5rem;
+    }
+  }
+}
