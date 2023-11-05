@@ -124,8 +124,6 @@ export const DemandFactorCalculation = () => {
 		}
 	}, [selected, number])
 
-	console.log(ratio)
-
 	const options = {
 		responsive: true,
 		maintainAspectRatio: false,
@@ -187,7 +185,7 @@ export const DemandFactorCalculation = () => {
 	return (
 		<div className={styles.wrapper}>
 			<Row gutter={{xs: 8, sm: 16, md: 24, lg: 32}}>
-				<Col className='gutter-row' xs={24} sm={24} md={24} lg={8} xl={8}>
+				<Col className='gutter-row' xs={24} sm={24} md={24} lg={8} xl={10}>
 					<Row className={styles.calcInner} gutter={[0, 16]}>
 						<Col span={24}>
 							<AntTitle level={2} className={styles.calcTitle}>
@@ -226,7 +224,7 @@ export const DemandFactorCalculation = () => {
 						</Col>
 					</Row>
 				</Col>
-				<Col className='gutter-row' xs={24} sm={24} md={24} lg={16} xl={12}>
+				<Col className='gutter-row' xs={24} sm={24} md={24} lg={16} xl={14}>
 					<div className={styles.chartInner}>
 						<Line data={data} options={options} />
 					</div>

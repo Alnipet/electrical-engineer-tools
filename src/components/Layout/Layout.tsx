@@ -21,7 +21,7 @@ export const Layout: FC<TProps> = ({children, title}) => {
 					{title && <Title className={styles.title}>{title}</Title>}
 					{children}
 				</Content>
-				<Footer style={{ textAlign: 'center' }}>Petrov Design ©2023 Created by Petrov</Footer>
+				<Footer style={{ textAlign: 'center' }}>Petrov Design ©2023 Created by Lex Petrov</Footer>
 			</AntLayout>
 		</>
 	)

@@ -1,0 +1,7 @@
+.header.mainHeader {
+  padding-inline: 50px;
+
+  @media screen and (max-width: 960px) {
+    padding-inline: 15px;
+  }
+}
