@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+![GitHub top language](https://img.shields.io/github/languages/top/Alnipet/moving-photos-mini-app)
+![GitHub language](https://img.shields.io/github/languages/count/Alnipet/moving-photos-mini-app)
+![GitHub created-at](https://img.shields.io/github/created-at/Alnipet/moving-photos-mini-app)
+![GitHub last commit](https://img.shields.io/github/last-commit/Alnipet/moving-photos-mini-app)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
