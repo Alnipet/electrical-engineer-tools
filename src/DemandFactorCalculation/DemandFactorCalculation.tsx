@@ -96,7 +96,7 @@ export const DemandFactorCalculation = () => {
 	const [ratio, setRatio] = useState<number | null>(null)
 
 	useEffect(() => {
-		setSelected(selectOptions[2].value)
+		setSelected(selectOptions[2]?.value ?? '')
 		setNumber(0)
 	}, [])
 
@@ -106,15 +106,24 @@ export const DemandFactorCalculation = () => {
 		const datasetY = datasets.filter((el) => el.label === selected)[0]?.data
 		const datasetX = [...labels]
 
-		if (number && number <= datasetX[1]) return setRatio(1)
+		if (number <= (datasetX[1] ?? Infinity)) return setRatio(1)
 
 		for (let i = 0; i < datasetX.length; i++) {
-			if (number === datasetX[i] && datasetY[i]) return setRatio(datasetY[i])
-			if (number >= datasetX[i] && !datasetY[i + 1]) return setRatio(datasetY[i])
+			const currentX = datasetX[i]
+			const nextX = datasetX[i + 1]
+			const currentY = datasetY?.[i]
+			const nextY = datasetY?.[i + 1]
 
-			if (number > datasetX[i] && number < datasetX[i + 1]) {
-				const a = (datasetY[i + 1] - datasetY[i]) / (datasetX[i + 1] - datasetX[i])
-				const b = datasetY[i] - a * datasetX[i]
+			if (currentX === undefined || currentY === undefined) continue
+
+			if (number === currentX && currentY) return setRatio(currentY)
+			if (number >= currentX && !nextY) return setRatio(currentY)
+
+			if (nextX !== undefined && number > currentX && number < nextX) {
+				if (nextY === undefined) continue
+				
+				const a = (nextY - currentY) / (nextX - currentX)
+				const b = currentY - a * currentX
 				const y = a * number + b
 
 				if (isNaN(y)) return setRatio(null)
