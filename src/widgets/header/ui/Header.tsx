@@ -3,7 +3,7 @@ import styles from './Header.module.scss'
 import {NavLink, useLocation} from 'react-router-dom'
 import type {MenuProps} from 'antd'
 import {Col, Layout, Menu, Row} from 'antd'
-import {Logo} from '../Logo/Logo'
+import {Logo} from '@/shared/ui'
 
 type TMenuItem = MenuProps['items']
 
@@ -14,8 +14,8 @@ const menuItem: TMenuItem = [
         key: '/',
     },
     {
-        label: <NavLink to='demandFactorCalculation'>Коэффициент спроса</NavLink>,
-        key: '/demandFactorCalculation',
+        label: <NavLink to='/demand-factor-calculation'>Коэффициент спроса</NavLink>,
+        key: '/demand-factor-calculation',
     }
 ]
 
