@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import styles from './Header.module.scss'
-import {NavLink, useLocation} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 import type {MenuProps} from 'antd'
 import {Col, Layout, Menu, Row} from 'antd'
 import {Logo} from '@/shared/ui'
@@ -10,40 +10,44 @@ type TMenuItem = MenuProps['items']
 const AntHeader = Layout.Header
 const menuItem: TMenuItem = [
     {
-        label: <NavLink to='/'>Главная</NavLink>,
+        label: 'Главная',
         key: '/',
     },
     {
-        label: <NavLink to='/demand-factor-calculation'>Коэффициент спроса</NavLink>,
+        label: 'Коэффициент спроса',
         key: '/demand-factor-calculation',
     }
 ]
 
 export const Header = () => {
-    const [currentMenuItem, setCurrentMenuItem] = useState<string>()
+    const location = useLocation()
+    const navigate = useNavigate()
+    const [currentMenuItem, setCurrentMenuItem] = useState<string>(location.pathname)
 
-    const handleMenuItemSelect: MenuProps['onClick'] = (e) => {
-        setCurrentMenuItem(e.key)
+    const handleMenuItemSelect: MenuProps['onClick'] = ({key}) => {
+        navigate(key)
     }
 
-    let location = useLocation()
     useEffect(() => {
         setCurrentMenuItem(location.pathname)
-    }, [])
+    }, [location.pathname])
 
     return (
-        <>
-            <AntHeader className={`${styles.header} ${styles.mainHeader}`}>
-                <Row align={'middle'} style={{height: '100%'}}>
-                    <Col xs={8} md={4}>
-                        <Logo/>
-                    </Col>
-                    <Col xs={12}>
-                        <Menu items={menuItem} mode="horizontal" theme='dark' selectedKeys={currentMenuItem ? [currentMenuItem] : undefined}
-                              onClick={handleMenuItemSelect}/>
-                    </Col>
-                </Row>
-            </AntHeader>
-        </>
+        <AntHeader className={`${styles.header} ${styles.mainHeader}`}>
+            <Row align={'middle'} style={{height: '100%'}}>
+                <Col xs={8} md={4}>
+                    <Logo/>
+                </Col>
+                <Col xs={16}>
+                    <Menu
+                        items={menuItem}
+                        mode="horizontal"
+                        theme='dark'
+                        selectedKeys={[currentMenuItem]}
+                        onClick={handleMenuItemSelect}
+                    />
+                </Col>
+            </Row>
+        </AntHeader>
     )
 }
